@@ -126,23 +126,24 @@ spushd MobileVLCKit/ImportedSources
 
 if [ "$NONETWORK" != "yes" ]; then
 if ! [ -e vlc ]; then
-git clone git://git.videolan.org/vlc.git vlc
-info "Applying patches to vlc.git"
-cd vlc
-git checkout -B localBranch ${TESTEDHASH}
-git branch --set-upstream-to origin/master localBranch
-git am ../../patches/*.patch
-if [ $? -ne 0 ]; then
-git am --abort
-info "Applying the patches failed, aborting git-am"
-exit 1
-fi
-cd ..
-else
-cd vlc
-git reset --hard ${TESTEDHASH}
-git am ../../patches/*.patch
-cd ..
+info "---------Building vlc source from github for GroupVoIP project---------"
+git clone -b localBranch https://github.com/wminghao/GroupVoIP.VLCSrcIOS.git vlc
+#info "Applying patches to vlc.git"
+#cd vlc
+#git checkout -B localBranch ${TESTEDHASH}
+#git branch --set-upstream-to origin/master localBranch
+#git am ../../patches/*.patch
+#if [ $? -ne 0 ]; then
+#git am --abort
+#info "Applying the patches failed, aborting git-am"
+#exit 1
+#fi
+#cd ..
+#else
+#cd vlc
+#git reset --hard ${TESTEDHASH}
+#git am ../../patches/*.patch
+#cd ..
 fi
 fi
 
