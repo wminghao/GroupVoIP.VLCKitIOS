@@ -19,7 +19,7 @@ TESTEDHASH=c2699feec
 usage()
 {
 cat << EOF
-usage: $0 [-s] [-v] [-k sdk]
+usage: $0 [-s] [-v] [-k sdk] [-d]
 
 OPTIONS
    -k       Specify which sdk to use (see 'xcodebuild -showsdks', current: ${SDK})
@@ -84,7 +84,9 @@ do
              BUILD_SIMULATOR=1
              BUILD_FRAMEWORK=1
              ;;
-         d)  CONFIGURATION="Debug"
+         d)  
+	     CONFIGURATION="Debug"
+	     echo "---------------Debug MobileVLCKit"
              ;;
          n)
              NONETWORK=yes
